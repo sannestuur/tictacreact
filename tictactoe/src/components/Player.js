@@ -9,10 +9,11 @@ export default class Player extends PureComponent {
 
     return (
       <li className="Player">
-        /*show symbol here*/
         <p className="name">{name}</p>
         <p className="wins">Wins: {wins}</p>
       </li>
     )
   }
 }
+
+//add symbol to name

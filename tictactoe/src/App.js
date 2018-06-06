@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Player from './components/Player'
+import Board from './components/Board'
 
 const players = [
   { id: 1, name: 'Elger', wins: 4 },
@@ -14,6 +15,7 @@ class App extends Component {
       <div className="App">
         <h1 className="App-title">Tic Tac Toe</h1>
         <p> by Sanne Stuur</p>
+        <Board/>
         <ul>
           {players.map((player, index) => <Player key={index} { ...player } />)}
         </ul>
