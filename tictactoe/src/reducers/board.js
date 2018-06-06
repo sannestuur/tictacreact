@@ -6,6 +6,8 @@ const initialState = [
   ['', '', '']
 ];
 
+// Note: action MOVE can be simplified if we pass on symbol rather than currentPlayer
+
 export default (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case MOVE:
