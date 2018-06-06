@@ -1,9 +1,9 @@
 import { MOVE } from "../actions/game";
 
 const initialState = [
-  [0, 0, 0],
-  [0, 0, 0],
-  [0, 0, 0]
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
 ];
 
 export default (state = initialState, { type, payload } = {}) => {
@@ -16,12 +16,10 @@ export default (state = initialState, { type, payload } = {}) => {
           if (colIndex !== payload.col) return value;
 
           switch (value) {
-            case 0:
-              return 1;
-            case 1:
-              return 2;
+            case "":
+              return (payload.currentPlayer === "Player_1" ? 'x' : 'o');
             default:
-              return 0;
+              return '';
           }
         });
       });

@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 export class Board extends PureComponent {
   static propTypes = {
     board: PropTypes.arrayOf(
-      PropTypes.arrayOf(PropTypes.number)
+      PropTypes.arrayOf(PropTypes.string)
     ).isRequired
   }
 

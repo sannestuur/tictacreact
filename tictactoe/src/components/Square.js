@@ -7,25 +7,27 @@ import { move } from "../actions/game";
 
 class Square extends PureComponent {
   static propTypes = {
-    value: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
   }
 
   handleClick = () => {
-    const { x, y, makeMove } = this.props
+    const { x, y, makeMove, currentPlayer } = this.props
 
-    makeMove(y, x);
+    makeMove(y, x, currentPlayer);
   }
 
   render() {
     return (
       <div className="Square"
-        onClick={this.handleClick}
-      />
+        onClick={this.handleClick}>{this.props.value}</div>
+
     )
   }
 }
 
+const mapStateToProps = ({ currentPlayer }) => ({ currentPlayer })
 
-export default connect(null, { makeMove: move})(Square)
+
+export default connect(mapStateToProps, { makeMove: move})(Square)
