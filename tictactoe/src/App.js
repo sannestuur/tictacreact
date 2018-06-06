@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
-import Player from './components/Player'
-import Board from './components/Board'
-
-const players = [
-  { id: 1, name: 'Elger', wins: 4 },
-  { id: 2, name: 'Sanne', wins: 0 }
-]
+import Game from './containers/Game'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1 className="App-title">Tic Tac Toe</h1>
-        <p> by Sanne Stuur</p>
-        <Board/>
-        <ul>
-          {players.map((player, index) => <Player key={index} { ...player } />)}
-        </ul>
-      </div>
+      <Router>
+        <div className="App">
+          <h1 className="App-title">Tic Tac Toe</h1>
+          <p> by Sanne Stuur</p>
+          <Route exact path="/game" component={Game} />
+          <Route exact path="/" render={ () => <Redirect to="/game" /> } />
+        </div>
+      </Router>
     );
   }
 }
