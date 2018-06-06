@@ -13,9 +13,9 @@ class Square extends PureComponent {
   }
 
   handleClick = () => {
-    const { x, y, makeMove, currentPlayer } = this.props
+    const { x, y, value, makeMove, currentPlayer } = this.props
 
-    makeMove(y, x, currentPlayer);
+    if (value===""){makeMove(y, x, currentPlayer);}
   }
 
   render() {
