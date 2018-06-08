@@ -3,11 +3,10 @@ export const SWITCH = 'SWITCH'
 export const CHECK = 'CHECK'
 export const SET = 'SET'
 
-export const makeMove = (row, col, currentPlayer) => ({
+export const makeMove = (index, currentPlayer) => ({
   type: MOVE,
   payload: {
-    row,
-    col,
+    index,
     currentPlayer
   }
 })
