@@ -12,21 +12,20 @@ export class Board extends PureComponent {
     ).isRequired
   }
 
-  renderRow = (row, index) => {
-    return (
-      <div key={index} className="row">
-        {row.map(this.renderSquare(index))}
-      </div>
-    )
-  }
+  // renderRow = (row, index) => {
+  //   return (
+  //     <div key={index} className="row">
+  //       {row.map(this.renderSquare(index))}
+  //     </div>
+  //   )
+  // }
 
-  renderSquare = rowIndex => (value, index) => {
+  renderSquare = (value, index) => {
     return (
       <Square
         key={index}
         value={value}
         x={index}
-        y={rowIndex}
         />
     )
   }
@@ -34,7 +33,7 @@ export class Board extends PureComponent {
   render() {
     return (
       <div className="Board">
-        {this.props.board.map(this.renderRow)}
+        {this.props.board.map(this.renderSquare)}
       </div>
     )
   }

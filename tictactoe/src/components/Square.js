@@ -9,13 +9,12 @@ class Square extends PureComponent {
   static propTypes = {
     value: PropTypes.string.isRequired,
     x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
   }
 
   handleClick = () => {
-    const { x, y, value, makeMove, currentPlayer, switchPlayer } = this.props
+    const { x, value, makeMove, currentPlayer, switchPlayer } = this.props
 
-    if (value===""){makeMove(y, x, currentPlayer); switchPlayer(currentPlayer);}
+    if (value===""){makeMove( x, currentPlayer); switchPlayer(currentPlayer);}
   }
 
   render() {
