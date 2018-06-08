@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
+import { Redirect } from "react-router-dom"
 import "./Square.css"
 import { makeMove } from "../actions/game"
 import { switchPlayer } from "../actions/game"
@@ -24,9 +25,10 @@ class Square extends PureComponent {
       ((board[0] === board[4]) === board[8] && board[0] !== "") ||
       ((board[2] === board[4]) === board[6] && board[2] !== "")
     ) {
-      updateWins(currentPlayer, players)
+      updateWins(currentPlayer, players)}
       // return <Redirect to="/winner" />
-    } else switchPlayer(currentPlayer)
+      else if (!board.includes("")) {return <Redirect to="/tie" />}
+     else switchPlayer(currentPlayer)
   }
 
   handleClick = () => {

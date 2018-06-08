@@ -5,6 +5,7 @@ import './App.css';
 import Game from './containers/Game'
 import ChoosePlayers from './components/ChoosePlayers'
 import Winner from './components/Winner'
+import Tie from './components/Tie'
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/game" component={Game} />
           <Route exact path="/choose-players" component={ChoosePlayers} />
           <Route exact path="/winner" component={Winner} />
+          <Route exact path="/tie" component={Tie} />
           <Route exact path="/" render={ () => <Redirect to="/game" /> } />
         </div>
       </Router>

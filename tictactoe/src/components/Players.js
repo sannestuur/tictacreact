@@ -4,7 +4,13 @@ import './Player.css'
 
 class Players extends PureComponent {
   render() {
-    const { players } = this.props
+    const { players, currentPlayer } = this.props
+
+    const current = (
+      this.props.currentPlayer === "Player_1"
+        ? (this.props.players[0])
+        : (this.props.players[1])
+    )
 
     return (
     <ul>
@@ -21,6 +27,6 @@ class Players extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ players }) => ({ players })
+const mapStateToProps = ({ players, currentPlayer }) => ({ players })
 
 export default connect(mapStateToProps, null)(Players)
