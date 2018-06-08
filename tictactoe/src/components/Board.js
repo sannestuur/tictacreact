@@ -12,21 +12,12 @@ export class Board extends PureComponent {
     ).isRequired
   }
 
-  renderRow = (row, index) => {
-    return (
-      <div key={index} className="row">
-        {row.map(this.renderSquare(index))}
-      </div>
-    )
-  }
-
-  renderSquare = rowIndex => (value, index) => {
+  renderSquare = (value, index) => {
     return (
       <Square
         key={index}
         value={value}
         x={index}
-        y={rowIndex}
         />
     )
   }
@@ -35,7 +26,7 @@ export class Board extends PureComponent {
     // if(this.props.gamefinished) -> redirect
     return (
       <div className="Board">
-        {this.props.board.map(this.renderRow)}
+        {this.props.board.map(this.renderSquare)}
       </div>
     )
   }
@@ -43,6 +34,4 @@ export class Board extends PureComponent {
 
 const mapStateToProps = ({ board }) => ({ board })
 
-
-// Then pass it to connect:
 export default connect(mapStateToProps)(Board)
