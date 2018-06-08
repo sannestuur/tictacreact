@@ -6,6 +6,7 @@ import { setPlayers } from "../actions/game"
 class ChoosePlayers extends PureComponent {
   state = {}
 
+// prevent automatic form submission behaviour or don't use form tag
 
   handleSubmit = data => {
     this.props.setPlayers(data.Player_1, data.Player_2);
@@ -16,7 +17,7 @@ class ChoosePlayers extends PureComponent {
     const { name, value } = event.target
 
     this.setState({
-      [name]: value || " "
+      inputName: value || " "
     })
   }
 
@@ -33,7 +34,7 @@ class ChoosePlayers extends PureComponent {
             placeholder="insert name"
             name="Player_1"
             id="Player_1"
-            value={this.state.Player_1 || this.props.players[0].name || ""}
+            value={this.state.inputName}
             onChange={this.handleChange}
           />
         </div>
@@ -45,7 +46,7 @@ class ChoosePlayers extends PureComponent {
 						placeholder="insert name"
             name="Player_2"
             id="Player_2"
-            value={this.state.Player_2 || this.props.players[1].name || ""}
+            value={this.state.inputName}
             onChange={this.handleChange}
           />
         </div>

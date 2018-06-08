@@ -32,6 +32,7 @@ export class Board extends PureComponent {
   }
 
   render() {
+    // if(this.props.gamefinished) -> redirect
     return (
       <div className="Board">
         {this.props.board.map(this.renderRow)}
