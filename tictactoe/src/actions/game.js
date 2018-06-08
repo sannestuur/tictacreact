@@ -26,9 +26,10 @@ export const updateWins = (currentPlayer, players) => ({
   }
 })
 
-export const setPlayers = (players) => ({
+export const setPlayers = (player1_name, player2_name) => ({
   type: SET,
   payload: {
-      players
+      player1_name,
+      player2_name
   }
 })

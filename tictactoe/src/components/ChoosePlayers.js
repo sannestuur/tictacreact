@@ -4,8 +4,9 @@ import { Redirect } from "react-router-dom"
 import { setPlayers } from "../actions/game"
 
 class ChoosePlayers extends PureComponent {
-  // state = {}
+  state = {}
 
+// prevent automatic form submission behaviour or don't use form tag
 
   handleSubmit = data => {
     this.props.setPlayers(data.Player_1, data.Player_2);
@@ -16,14 +17,16 @@ class ChoosePlayers extends PureComponent {
     const { name, value } = event.target
 
     this.setState({
-      [name]: value
+      inputName: value || " "
     })
   }
 
 
   render() {
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}
+        initialValues={this.props.players}>
         <div>
           <label htmlFor="Player_1">Player 1</label>
           <input
@@ -31,7 +34,7 @@ class ChoosePlayers extends PureComponent {
             placeholder="insert name"
             name="Player_1"
             id="Player_1"
-            value={this.state.Player_1 || ""}
+            value={this.state.inputName}
             onChange={this.handleChange}
           />
         </div>
@@ -43,7 +46,7 @@ class ChoosePlayers extends PureComponent {
 						placeholder="insert name"
             name="Player_2"
             id="Player_2"
-            value={this.state.Player_2 || ""}
+            value={this.state.inputName}
             onChange={this.handleChange}
           />
         </div>
