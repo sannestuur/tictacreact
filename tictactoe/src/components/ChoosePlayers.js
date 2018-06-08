@@ -1,39 +1,59 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from "react"
+import { connect } from "react-redux"
+import { Redirect } from "react-router-dom"
+import { setPlayers } from "../actions/game"
 
-export default class ChoosePlayers extends PureComponent {
-  state = {}
+class ChoosePlayers extends PureComponent {
+  // state = {}
 
-	handleSubmit = (data) => {
-		console.log(data)
-	}
 
-	handleChange = (event) => {
-    const {name, value} = event.target
+  handleSubmit = data => {
+    this.props.setPlayers(data.Player_1, data.Player_2);
+    return <Redirect to="/game" />
+  }
+
+  handleChange = event => {
+    const { name, value } = event.target
 
     this.setState({
       [name]: value
     })
   }
 
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<div>
-					<label>Player 1</label>
-					<input type="string" name="Player_1" id="Player_1" value={
-						this.state.Player_1 || ''
-					} onChange={ this.handleChange } />
-				</div>
 
-				<div>
-					<label>Player 2</label>
-					<input type="string" name="Player_2" id="Player_2" value={
-						this.state.Player_2 || ''
-					} onChange={ this.handleChange } />
-				</div>
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div>
+          <label htmlFor="Player_1">Player 1</label>
+          <input
+            type="string"
+            placeholder="insert name"
+            name="Player_1"
+            id="Player_1"
+            value={this.state.Player_1 || ""}
+            onChange={this.handleChange}
+          />
+        </div>
 
-				<button type="submit">Play!</button>
-			</form>
-		)
-	}
+        <div>
+          <label htmlFor="Player_2">Player 2</label>
+          <input
+            type="string"
+						placeholder="insert name"
+            name="Player_2"
+            id="Player_2"
+            value={this.state.Player_2 || ""}
+            onChange={this.handleChange}
+          />
+        </div>
+
+        <button type="submit">Play!</button>
+      </form>
+    )
+  }
 }
+
+const mapStateToProps = ({ players }) => ({ players })
+
+export default connect(mapStateToProps, { setPlayers })(ChoosePlayers)

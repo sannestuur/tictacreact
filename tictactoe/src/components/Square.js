@@ -1,11 +1,9 @@
-// src/components/Square.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from "react-redux"
 import './Square.css'
 import { makeMove } from "../actions/game";
 import { switchPlayer } from "../actions/game";
-
 
 class Square extends PureComponent {
   static propTypes = {
