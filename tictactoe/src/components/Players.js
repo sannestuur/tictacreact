@@ -24,5 +24,3 @@ class Players extends PureComponent {
 const mapStateToProps = ({ players }) => ({ players })
 
 export default connect(mapStateToProps, null)(Players)
-
-//add symbol to name

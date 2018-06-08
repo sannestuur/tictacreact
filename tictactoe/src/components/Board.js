@@ -12,14 +12,6 @@ export class Board extends PureComponent {
     ).isRequired
   }
 
-  // renderRow = (row, index) => {
-  //   return (
-  //     <div key={index} className="row">
-  //       {row.map(this.renderSquare(index))}
-  //     </div>
-  //   )
-  // }
-
   renderSquare = (value, index) => {
     return (
       <Square
@@ -41,6 +33,4 @@ export class Board extends PureComponent {
 
 const mapStateToProps = ({ board }) => ({ board })
 
-
-// Then pass it to connect:
 export default connect(mapStateToProps)(Board)
