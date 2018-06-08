@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom"
 import { setPlayers } from "../actions/game"
 
 class ChoosePlayers extends PureComponent {
-  // state = {}
+  state = {}
 
 
   handleSubmit = data => {
@@ -16,14 +16,16 @@ class ChoosePlayers extends PureComponent {
     const { name, value } = event.target
 
     this.setState({
-      [name]: value
+      [name]: value || " "
     })
   }
 
 
   render() {
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}
+        initialValues={this.props.players}>
         <div>
           <label htmlFor="Player_1">Player 1</label>
           <input
@@ -31,7 +33,7 @@ class ChoosePlayers extends PureComponent {
             placeholder="insert name"
             name="Player_1"
             id="Player_1"
-            value={this.state.Player_1 || ""}
+            value={this.state.Player_1 || this.props.players[0].name || ""}
             onChange={this.handleChange}
           />
         </div>
@@ -43,7 +45,7 @@ class ChoosePlayers extends PureComponent {
 						placeholder="insert name"
             name="Player_2"
             id="Player_2"
-            value={this.state.Player_2 || ""}
+            value={this.state.Player_2 || this.props.players[1].name || ""}
             onChange={this.handleChange}
           />
         </div>
