@@ -3,17 +3,25 @@ li.Player {
   align-content: space-between;
   align-items: center;
   border: 1px solid #ccc;
-  max-width: 350px;
+  max-width: 500px;
 }
 
 li.Player p {
   flex: 1;
-  padding: 12px 24px;
+  padding: 12px 12px;
   font-size: 150%;
 }
 
-li.Player p.name {
+li.Player p.bold {
   font-weight: bold;
+}
+
+li.Player p.name {
+  text-transform: capitalize;
+}
+
+li.Player p.symbol {
+  color: red;
 }
 
 li.Player p.score {

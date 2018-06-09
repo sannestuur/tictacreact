@@ -2,6 +2,7 @@ import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import { setPlayers } from "../actions/game"
 import { FormErrors } from "./FormErrors"
+import './choosePlayers.css' 
 
 class ChoosePlayers extends PureComponent {
   constructor(props) {
@@ -103,7 +104,7 @@ class ChoosePlayers extends PureComponent {
             onChange={this.handleChange}
           />
         </div>
-        <div className="panel panel-default">
+        <div className="error">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
         <button type="submit" disabled={!this.state.formValid}>

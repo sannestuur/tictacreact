@@ -9,10 +9,14 @@ class Players extends PureComponent {
     return (
     <ul>
       <li className="Player">
+        <p className="bold">Player 1:</p>
+        <p className="bold symbol">X</p>
         <p className="name">{players[0].name}</p>
         <p className="wins">Wins: {players[0].wins}</p>
       </li>
       <li className="Player">
+        <p className="bold">Player 2:</p>
+        <p className="bold symbol">O</p>
         <p className="name">{players[1].name}</p>
         <p className="wins">Wins: {players[1].wins}</p>
       </li>
