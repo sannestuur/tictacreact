@@ -120,4 +120,4 @@ class ChoosePlayers extends PureComponent {
 
 const mapStateToProps = ({ players }) => ({ players })
 
-export default connect(mapStateToProps, { setPlayers })(ChoosePlayers)
+export default connect (mapStateToProps, { setPlayers })(ChoosePlayers)
