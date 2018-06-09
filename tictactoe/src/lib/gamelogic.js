@@ -25,5 +25,5 @@ export const checkWin = board => {
 }
 
 export const checkTie = board => {
-  return !board.includes("")
+  return (!board.includes("")&&!checkWin(board))
 }
