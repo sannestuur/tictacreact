@@ -2,7 +2,7 @@ import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import { setPlayers } from "../actions/game"
 import { FormErrors } from "./FormErrors"
-import './choosePlayers.css' 
+import './ChoosePlayers.css' 
 
 class ChoosePlayers extends PureComponent {
   constructor(props) {
