@@ -1,21 +1,29 @@
 import React, { PureComponent } from "react"
+import { connect } from "react-redux"
+import { createGame } from "../actions/game"
 
 class Tie extends PureComponent {
+
+  playAgain = () => {
+    this.props.createGame();
+    this.props.history.push("/game")
+  }
+
+  quitGame = () => {
+    this.props.createGame();
+    this.props.history.push("/choose-players")
+  }
+
   render() {
     return (
       <div>
         <h1>It's a tie!</h1>
         <p>Do you want to play against each other again?</p>
-        <button onClick={() => this.props.history.push(`/game`)}>
-          Play again!
-        </button>
-        <br />
-        <button onClick={() => this.props.history.push(`/choose-players`)}>
-          Quit
-        </button>
+          <button onClick={this.playAgain}>Play again!</button><br/>
+          <button onClick={this.quitGame}>Quit</button>
       </div>
     )
   }
 }
 
-export default Tie
+export default connect(null, { createGame} )(Tie)
