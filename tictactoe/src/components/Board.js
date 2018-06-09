@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-
 import Square from "./Square"
 import "./Board.css"
 import { checkWin, checkTie } from "../lib/gamelogic"
@@ -32,7 +31,7 @@ export class Board extends PureComponent {
   }
 
   render() {
-    const { gameWon, gameTie } = this.props
+    const { gameWon, gameTie  } = this.props
 
     if (gameWon) {
       this.props.history.push("/winner")
