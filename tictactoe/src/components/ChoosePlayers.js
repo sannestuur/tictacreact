@@ -2,7 +2,7 @@ import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import { setPlayers } from "../actions/game"
 import { FormErrors } from "./FormErrors"
-import './ChoosePlayers.css' 
+import './ChoosePlayers.css'
 
 class ChoosePlayers extends PureComponent {
   constructor(props) {
@@ -81,7 +81,7 @@ class ChoosePlayers extends PureComponent {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="Player1">Player 1</label>
           <input
@@ -107,7 +107,7 @@ class ChoosePlayers extends PureComponent {
         <div className="error">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
-        <button type="submit" disabled={!this.state.formValid}>
+        <button className="button" type="submit" disabled={!this.state.formValid}>
           Play!
         </button>
       </form>

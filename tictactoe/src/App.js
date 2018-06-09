@@ -13,12 +13,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <h1 className="App-title">Tic Tac Toe</h1>
-          <p> by Sanne Stuur</p>
+          <p className="author">by Sanne Stuur</p>
+          <div className="content">
           <Route exact path="/game" component={Game} />
           <Route exact path="/choose-players" component={ChoosePlayers} />
           <Route exact path="/winner" component={Winner} />
           <Route exact path="/tie" component={Tie} />
           <Route exact path="/" render={ () => <Redirect to="/game" /> } />
+          </div>
         </div>
       </Router>
     );

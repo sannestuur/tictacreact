@@ -19,8 +19,8 @@ class Tie extends PureComponent {
       <div>
         <h1>It's a tie!</h1>
         <p>Do you want to play against each other again?</p>
-          <button onClick={this.playAgain}>Play again!</button><br/>
-          <button onClick={this.quitGame}>Quit</button>
+          <button className="button" onClick={this.playAgain}>Play again!</button><br/>
+          <button className="button" onClick={this.quitGame}>Quit</button>
       </div>
     )
   }

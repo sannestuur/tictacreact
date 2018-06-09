@@ -2,7 +2,9 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  margin: 30px;
+  margin: 40px;
   max-width: 249px;
   border: 8px solid #eee;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -4,11 +4,12 @@ li.Player {
   align-items: center;
   border: 1px solid #ccc;
   max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li.Player p {
   flex: 1;
-  padding: 12px 12px;
   font-size: 150%;
 }
 
