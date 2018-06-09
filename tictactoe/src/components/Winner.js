@@ -15,8 +15,8 @@ class Winner extends PureComponent {
       <div>
       <h1>{winner} has won!</h1>
       <p>Do you want to play against each other again?</p>
-      <button onclick="location.href='/game'">Play again!</button><br/>
-      <button onclick="location.href='/choose-players'">Quit</button>
+      <button onClick={() => this.props.history.push(`/game`)}>Play again!</button><br/>
+      <button onClick={() => this.props.history.push(`/choose-players`)}>Quit</button>
       </div>
     )
   }
