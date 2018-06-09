@@ -1,58 +1,62 @@
 import React, { PureComponent } from "react"
+import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import { Redirect } from "react-router-dom"
+import { Redirect, withRouter} from "react-router-dom"
 import { setPlayers } from "../actions/game"
 
 class ChoosePlayers extends PureComponent {
+  static propTypes = {
+    Player1: PropTypes.string.isRequired,
+    Player2: PropTypes.string.isRequired
+  }
+
   state = {}
 
-// prevent automatic form submission behaviour or don't use form tag
+  // prevent automatic form submission behaviour or don't use form tag
 
-  handleSubmit = data => {
-    this.props.setPlayers(data.Player_1, data.Player_2);
-    return <Redirect to="/game" />
+  handleSubmit = () => {
+    console.log(this.state)
+    this.props.setPlayers(this.state.Player1, this.state.Player2)
+    this.props.history.push('/game');
   }
 
   handleChange = event => {
     const { name, value } = event.target
 
     this.setState({
-      inputName: value || " "
+      [name]: value
     })
   }
 
-
   render() {
-
     return (
-      <form onSubmit={this.handleSubmit}
-        initialValues={this.props.players}>
+      <div>
         <div>
-          <label htmlFor="Player_1">Player 1</label>
+          <label htmlFor="Player1">Player 1</label>
           <input
             type="string"
             placeholder="insert name"
-            name="Player_1"
-            id="Player_1"
-            value={this.state.inputName}
+            name="Player1"
+            id="Player1"
+            value={this.state.Player1}
             onChange={this.handleChange}
           />
         </div>
-
         <div>
           <label htmlFor="Player_2">Player 2</label>
           <input
             type="string"
-						placeholder="insert name"
-            name="Player_2"
-            id="Player_2"
-            value={this.state.inputName}
+            placeholder="insert name"
+            name="Player2"
+            id="Player2"
+            value={this.state.Player2}
             onChange={this.handleChange}
           />
         </div>
-
-        <button type="submit">Play!</button>
-      </form>
+        <div>
+        </div>
+        <button onClick={this.handleSubmit}>Play!</button>
+      </div>
     )
   }
 }

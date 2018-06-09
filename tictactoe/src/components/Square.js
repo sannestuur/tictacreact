@@ -13,7 +13,7 @@ class Square extends PureComponent {
     x: PropTypes.number.isRequired
   }
 
-  checkWin = (board, currentPlayer, players) => {
+  checkWin = (currentPlayer, players, board) => {
 
     if (
       ((board[0] === board[1]) === board[2] && board[0] !== "") ||
@@ -25,17 +25,19 @@ class Square extends PureComponent {
       ((board[0] === board[4]) === board[8] && board[0] !== "") ||
       ((board[2] === board[4]) === board[6] && board[2] !== "")
     ) {
-      updateWins(currentPlayer, players)}
+      updateWins(currentPlayer, players)
+      }
       // return <Redirect to="/winner" />
       else if (!board.includes("")) {return <Redirect to="/tie" />}
      else switchPlayer(currentPlayer)
   }
 
   handleClick = () => {
-    const { x, value, makeMove, currentPlayer, switchPlayer } = this.props
+    const { x, value, makeMove, currentPlayer, switchPlayer, updateWins, board, players} = this.props
 
     if (value === "") {
       makeMove(x, currentPlayer)
+      // updateWins(currentPlayer, players, board)
       switchPlayer(currentPlayer)
     }
   }
@@ -49,6 +51,6 @@ class Square extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ currentPlayer }) => ({ currentPlayer })
+const mapStateToProps = ({ currentPlayer, board, players }) => ({ currentPlayer, board, players })
 
-export default connect(mapStateToProps, { makeMove, switchPlayer })(Square)
+export default connect(mapStateToProps, { makeMove, switchPlayer, updateWins })(Square)

@@ -2,6 +2,8 @@ export const MOVE = 'MOVE'
 export const SWITCH = 'SWITCH'
 export const WIN = 'WIN'
 export const SET = 'SET'
+export const UPDATE_WIN = 'UPDATE_WIN'
+
 
 export const makeMove = (index, currentPlayer) => ({
   type: MOVE,
@@ -18,18 +20,19 @@ export const switchPlayer = (currentPlayer) => ({
   }
 })
 
-export const updateWins = (currentPlayer, players) => ({
-  type: WIN,
+export const updateWins = (currentPlayer, players, board) => ({
+  type: UPDATE_WIN,
   payload: {
       currentPlayer,
-      players
+      players,
+      board
   }
 })
 
-export const setPlayers = (player1_name, player2_name) => ({
+export const setPlayers = (player1, player2) => ({
   type: SET,
   payload: {
-      player1_name,
-      player2_name
+      player1,
+      player2
   }
 })
