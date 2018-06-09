@@ -27,12 +27,8 @@ class ChoosePlayers extends PureComponent {
     const { name, value } = event.target
 
     this.setState(
-      {
-        [name]: value
-      },
-      () => {
-        this.validateField(name, value)
-      }
+      {[name]: value},
+      () => {this.validateField(name, value)}
     )
   }
 

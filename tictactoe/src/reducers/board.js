@@ -1,22 +1,12 @@
 import { MOVE } from "../actions/game"
+import {updateBoard} from "../lib/gamelogic"
 
 const initialState = ["", "", "", "", "", "", "", "", ""]
-
-// Note: action MOVE can be simplified if we pass on symbol rather than currentPlayer
 
 export default (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case MOVE:
-      return state.map((value, index) => {
-        if (index !== payload.index) return value
-
-        switch (value) {
-          case "":
-            return payload.currentPlayer === "Player_1" ? "x" : "o"
-          default:
-            return ""
-        }
-      })
+      return updateBoard(state, payload.index, payload.currentPlayer)
     default:
       return state
   }

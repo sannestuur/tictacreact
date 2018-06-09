@@ -1,9 +1,10 @@
 import { SET } from "../actions/game"
-import { UPDATE_WIN } from "../actions/game"
+import { MOVE } from "../actions/game"
+import { updateBoard, checkWin } from "../lib/gamelogic"
 
 const initialState = [
-  { id: 1, name: "Elger", wins: 0 },
-  { id: 2, name: "Sanne", wins: 0 }
+  { id: 1, name: "", wins: 0 },
+  { id: 2, name: "", wins: 0 }
 ]
 
 export default (state = initialState, { type, payload } = {}) => {
@@ -29,16 +30,22 @@ export default (state = initialState, { type, payload } = {}) => {
     //    return newplayers
     // ;
 
-    case UPDATE_WIN:
-      const newScore = []
-      var player1score = Object.assign({}, state[0])
-      var player2score = Object.assign({}, state[1])
-      payload.currentPlayer === "Player_1"
-        ? (player1score.wins += 1)
-        : (player2score.wins += 1)
-      newScore.push(player1score, player2score)
-      return newScore
-
+    case MOVE:
+      const newBoard = updateBoard(
+        payload.board,
+        payload.index,
+        payload.currentPlayer
+      )
+      if (checkWin(newBoard)) {
+        const newScore = []
+        var player1score = Object.assign({}, state[0])
+        var player2score = Object.assign({}, state[1])
+        payload.currentPlayer === "Player_1"
+          ? (player1score.wins += 1)
+          : (player2score.wins += 1)
+        newScore.push(player1score, player2score)
+        return newScore
+      } else return state
     default:
       return state
   }

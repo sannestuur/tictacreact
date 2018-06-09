@@ -7,8 +7,8 @@ class Winner extends PureComponent {
 
     const winner = (
       this.props.currentPlayer === "Player_1"
-        ? (this.props.players[0].name)
-        : (this.props.players[1].name)
+        ? (this.props.players[1].name)
+        : (this.props.players[0].name)
     )
 
     return (

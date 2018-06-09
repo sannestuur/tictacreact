@@ -1,16 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import './Player.css'
 
 class Players extends PureComponent {
   render() {
-    const { players, currentPlayer } = this.props
-
-    const current = (
-      this.props.currentPlayer === "Player_1"
-        ? (this.props.players[0])
-        : (this.props.players[1])
-    )
+    const { players } = this.props
 
     return (
     <ul>
@@ -27,6 +21,6 @@ class Players extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ players, currentPlayer }) => ({ players })
+const mapStateToProps = ({ players }) => ({ players })
 
 export default connect(mapStateToProps, null)(Players)
